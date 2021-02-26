@@ -1,0 +1,22 @@
+---
+title: "Peer Review Project 1"
+date: "2/25/2021"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+```{r,echo=TRUE}
+library(leaflet)
+LIcoords <-data.frame(
+  lat=c(40.8862, 40.8064, 40.5860, 42.60, 39.045),
+  lng=c(-73.2573, -73.1241, -73.8166, -76.185, -76.413))
+               
+pops <- c("Home", "Work" , "Friend" , "Undergrad" , "Grad" )
+
+LIcoords %>%
+  leaflet()%>%
+  addTiles()%>%
+  addMarkers(popup=pops, clusterOptions = markerClusterOptions())
+
+
+```
